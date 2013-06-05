@@ -1,0 +1,14 @@
+<div>
+<b> Cat <%= @cat.name%> has following features:</b>
+<ul>
+	<% @cat.attributes.each do |attr_name, attr_value| %>
+	<% next if attr_name == "created_at" || attr_name =="updated_at" %>
+	<li>
+		<%= attr_name %>  <%= attr_value %>
+	</li>
+	<% end %>
+</ul>
+<%= link_to "Cats index", cats_url%>
+
+</div>
+
