@@ -9,6 +9,20 @@
 	<% end %>
 </ul>
 <%= link_to "Cats index", cats_url%>
+<%= button_to "Delete this cat", @cat, :method=>:delete, :class=>:destroy %>
 
 </div>
 
+<b> This Cat has following requests: </b>
+<% @cat.cat_rental_requests.each do |req| %>
+	<p>This is a request </p>
+	<% req.attributes.each do |attr_name, attr_value| %>
+				<li>
+				<%= attr_name %>  <%= attr_value %>
+				</li>
+	<% end %>
+	<!-- add butteons here -->
+
+	<%= button_to "approved",[@cat, req], :method=>:put, :class=>:update, :name => "cat_rental_request[status]" %>
+	<%= button_to "denied",[@cat, req], :method=>:put, :class=>:update, :name => "cat_rental_request[status]" %>
+<% end %>

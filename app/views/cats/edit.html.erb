@@ -1,0 +1,9 @@
+<h1> Edit this Cat! </h1>
+<%= @cat.errors.full_messages %>
+
+<!-- <form action = "/cats/<%= @cat.id %>" method= "put"> -->
+<%= form_tag(cat_path(@cat), method: :put) do %>
+
+	<%= render "inner_form" %>
+<!-- </form> -->
+<% end %>

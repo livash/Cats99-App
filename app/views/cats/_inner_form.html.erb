@@ -1,0 +1,40 @@
+	<label for= "cat_name">Cat's Name </label>
+	<input name = "cat[name]" id = "cat_name" type="text" value= "<%= @cat.name %>">
+	<br>
+
+	<label for="cat_color">Color</label>
+	<select name="cat[color]">
+		<% %w(brown black white orange).each do |color| %>
+		<option value= <%= color %>
+			<%= "selected='selected' " if @cat.color == color %>>
+			 <%= color.capitalize %>
+		</option>
+		<% end %>
+
+	</select>
+	<br>
+
+	<label for= "cat_age">Age </label>
+	<input name= "cat[age]" id = "cat_age" type= "number" value= "<%= @cat.age %>">
+	<br>
+
+
+	<label>Sex</label>
+	<div>
+	<input name="cat[sex]" id="cat_sex_m" type="radio" value="m" <%= 'checked' if @cat.sex == 'm' %> >
+	<label for="cat_sex_m">Male</label>
+	<input name="cat[sex]" id="cat_sex_f" type="radio" value="f" <%= 'checked' if @cat.sex == 'f' %>>
+	<label for='cat_sex_f'>Female</label>
+	<input name= 'cat_sex_u' id="cat_sex_u" type="radio" value="u" <%= 'checked' if @cat.sex == 'u' %>>
+	<label for='cat_sex_u'>Prefer not to tell</label>
+
+	<br>
+</div>
+
+	<label for= "cat_date">Birth Date</label>
+	<input name= "cat[birth_date]" id= "cat_date" type= "date" value= "<%= @cat.birth_date %>">
+	<br>
+
+
+
+	<input type="submit" value="Create Cat!">

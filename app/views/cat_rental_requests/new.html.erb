@@ -1,0 +1,10 @@
+<h1> Create new Cat Rental Request! </h1>
+<%= @request.errors.full_messages %>
+
+<!-- <form action = "/cats/<%= @request.cat_id %>/cat_rental_requests" method= "post"> -->
+<%= form_tag(cat_cat_rental_requests_path(@cat), method: :post) do %>
+
+	<%= render "inner_form" %>
+
+	<% end %>
+<!-- </form> -->

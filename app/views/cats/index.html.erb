@@ -1,8 +1,16 @@
-<ul>
+
+	 <b>
+		  id
+		cat's name
+	</b>
+
+	<ol>
 	<% @cats.each do |cat| %>
 	<li>
+		<%= cat.id %>
 		<%= cat.name %>
+
 	</li>
 	<% end %>
 
-</ul>
+</ol>

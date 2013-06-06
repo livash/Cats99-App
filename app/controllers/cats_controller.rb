@@ -19,20 +19,25 @@ class CatsController < ApplicationController
   end
 
   def edit
-    @cat = Cat.find(param[:id])
-    render :new
+    @cat = Cat.find(params[:id])
   end
 
   def destroy
+    if Cat.find(params[:id])
+      Cat.find(params[:id]).destroy
+    end
+      redirect_to cats_url
+  end
 
+  def update
+    @cat = Cat.find(params[:id])
+    if @cat.update_attributes(params[:cat])
+      redirect_to @cat
+    end
   end
 
   def show
     @cat = Cat.find(params[:id])
-    if @cat
-      render :show
-    else
-      render :json => {:status => "Wrong index for a cat"}
-    end
+    render :show
   end
 end

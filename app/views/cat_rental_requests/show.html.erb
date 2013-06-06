@@ -1,0 +1,15 @@
+<div>
+<b> Rental request for <%= @cat.name%> is:</b>
+<ul>
+	<% @request.attributes.each do |attr_name, attr_value| %>
+	<!-- <% next if attr_name == "created_at" || attr_name =="updated_at" %> -->
+	<li>
+		<%= attr_name %>  <%= attr_value %>
+	</li>
+	<% end %>
+</ul>
+<!-- <%= link_to "Cats index", cats_url%> -->
+<%= button_to "Delete this Request", [@cat, @request], :method=>:delete, :class=>:destroy %>
+
+</div>
+
